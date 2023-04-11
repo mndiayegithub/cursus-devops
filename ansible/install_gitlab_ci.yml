@@ -11,5 +11,5 @@
     gitlab_runner_version: gitlab-runner:alpine-v13.8.0                           
     gitlab_port_ssh : 2222
     # docker_gitlab_runner_config_toml_template: templates/config.toml.j2
-#  roles:
-#    - ansible-docker-gitlab 
+  roles:
+    - ansible-docker-gitlab 
