@@ -10,10 +10,6 @@
       package: name=epel-release state=present
       when: ansible_distribution == "CentOS"
 
-    - name: Print ansible-check-mode
-      debug:
-        msg: "{{ ansible_check_mode }}"
-
     - name: install python-pip
       package: name=python-pip state=present update_cache=yes
   roles:
