@@ -2,7 +2,8 @@
 - hosts: localhost
   become: true
   vars:
-    docker_packages: docker
+    docker_packages:
+    - name: docker
     pip_install_packages:
       - name: docker
   pre_tasks:
