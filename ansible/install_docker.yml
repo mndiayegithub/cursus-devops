@@ -3,7 +3,10 @@
   become: true
   vars:
     docker_packages:
-    - name: docker
+        - docker-ce
+        - docker-ce-cli
+        #- docker-ce-rootless-extras"
+        #- containerd.io"
     pip_install_packages:
       - name: docker
   pre_tasks:
