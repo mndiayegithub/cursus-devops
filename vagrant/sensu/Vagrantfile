@@ -1,0 +1,22 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+# To enable zsh, please set ENABLE_ZSH env var to "true" before launching vagrant up 
+#   + On windows => $env:ENABLE_ZSH="true"
+#   + On Linux  => export ENABLE_ZSH="true"
+
+Vagrant.configure("2") do |config|
+  config.vm.define "sensu" do |sensu|
+    sensu.vm.box = "geerlingguy/centos7"
+    sensu.vm.network "private_network", ip: "10.10.20.5"
+    sensu.vm.hostname = "sensu"
+    sensu.vm.provider "virtualbox" do |v|
+      v.name = "sensu"
+      v.memory = 1024
+      v.cpus = 2
+    end
+    sensu.vm.provision :shell do |shell|
+      shell.path = "install_docker.sh","install_sensu.sh"
+      shell.env = { 'ENABLE_ZSH' => ENV['ENABLE_ZSH'] }
+    end
+  end
+end
