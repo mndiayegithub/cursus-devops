@@ -8,7 +8,7 @@ apt -y install ansible
 
 # retrieve ansible code
 apt -y install git
-git clone https://github.com/diranetafen/cursus-devops.git
+git clone https://github.com/mndiayegithub/cursus-devops.git
 cd cursus-devops/ansible
 ansible-galaxy install -r roles/requirements.yml
 ansible-playbook install_docker.yml
@@ -35,7 +35,7 @@ cp /etc/docker/certs.d/$GITLAB_EXTERNAL_HOSTNAME/$GITLAB_EXTERNAL_HOSTNAME.key /
 cp /etc/docker/certs.d/$GITLAB_EXTERNAL_HOSTNAME/$GITLAB_EXTERNAL_HOSTNAME.crt /opt/gitlab/cert/$GITLAB_EXTERNAL_HOSTNAME.crt
 
 # Deploy GitLab with Ansible
-ansible-playbook install_gitlab_ci.yml --extra-var "gitlab_external_hostname=${GITLAB_EXTERNAL_HOSTNAME}"
+#ansible-playbook install_gitlab_ci.yml --extra-var "gitlab_external_hostname=${GITLAB_EXTERNAL_HOSTNAME}"
 
 # Manage .crt and .key files to enable authentication
 rm -f /etc/docker/certs.d/$GITLAB_EXTERNAL_HOSTNAME/$GITLAB_EXTERNAL_HOSTNAME.key
